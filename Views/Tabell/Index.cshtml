@@ -1,0 +1,69 @@
+@using Allsvenskan
+@model Serie
+@{
+    ViewData["Title"] = "Tabell";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Allsvenskan</h1>
+    <p>//här kommer en tabell</p>
+    <table>
+        <thead>
+            <th>Lag</th>
+            <th>matcher</th>
+            <th>poäng</th>
+            <th>P/m</th>
+            <th>Målskillnad</th>
+            <th>Gräs</th>
+            <th>Plast</th>
+            <th>Motstånd</th>
+            <th>Kommande</th>
+            <th>Slutpoäng</th>
+        </thead>
+        <tbody>
+            @foreach (var team in Model.teams)
+            {
+                <tr>
+                <td>@team.name</td>
+                <td>@team.games</td>
+                <td>@team.points</td>
+                <td>@team.pPerGame</td>
+                <td>@team.goalDiff</td>
+                <td>@team.pPerGrass</td>
+                <td>@team.pPerPlastic</td>
+                <td>@team.average</td>
+                <td>@team.specialaverage</td>
+                <td>@team.pitch</td>
+                <td>@team.endPoint</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <table>
+        <thead>
+            <th>Omg:</th>
+            <th>Hemmalag</th>
+            <th></th>
+            <th>Bortalag</th>
+        </thead>
+        <tbody>
+            @foreach (var game in Model.gamesToGuess)
+            {
+                <tr>
+                <td>@game.round</td>
+                <td>@game.homeTeam.name</td>
+                <td>-</td>
+                <td>@game.awayTeam.name</td>
+                <td><form>
+                            <select name="1x2">
+                            <option value ="ett">1</option>
+                            <option value ="kryss">X</option>
+                            <option value ="tva">2</option>
+                            </select> 
+                    </form>
+                </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
