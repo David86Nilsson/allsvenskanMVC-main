@@ -324,7 +324,7 @@ public class Serie{
 
                     if (game.homeTeam.rank<=topTeams || game.awayTeam.rank <=topTeams){
                         gamesToGuess.Add(game);
-                        //GuessTheGame(game);
+                        //game.GuessTheGame();
                     }
                 }
                  
@@ -336,7 +336,7 @@ public class Serie{
             int result = 0;
             bool isResult = Int32.TryParse(Console.ReadLine(), out result);            
             if(isResult){
-                game.GuessTheGame(result);
+                game.GuessTheGame(Console.ReadLine());
             }
         }   
     }

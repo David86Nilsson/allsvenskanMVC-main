@@ -50,7 +50,9 @@ namespace Allsvenskan
                 return ("\n" + round + ":\t" + homeTeam.name + " - " + awayTeam.name);
             }
         }
-        public void GuessTheGame(int result){
+        public void GuessTheGame(string input){
+            int result = 0;
+            bool isNumber = int.TryParse(input, out result);
             if(result == 1){
                 homeTeam.AddToEndPoints(3);
             }
